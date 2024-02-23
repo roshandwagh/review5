@@ -1,0 +1,32 @@
+<extension name="task2_1">
+  <condition field="destination_number" expression="^912222$">
+	     <action application="pre_answer"/>
+	  <action application="playback" data="voicemail/welcom_ecosmob.wav"/>
+	    <action application="answer"/>
+	  <action application="park"/>
+  </condition>
+</extension>
+
+
+
+	<extension name="task2_2">
+  <condition field="destination_number" expression="^911111$">
+          <action application="pre_answer"/>
+               <action application="playback" data="voicemail/welcom_ecosmob.wav"/>
+         <action application="answer"/>
+            <action application="park"/>
+  </condition>
+
+  </extension>
+
+
+ 
+  <extension name="task2_3">
+
+	 <condition field="destination_number" expression="^(911111|912222)$" negate="true">
+    <anti-action application="log" data="Call to ${destination_number} did not found"/>
+    <anti-action application="respond" data="404 Not Found"/>
+  </condition>
+</extension>
+ 
+
