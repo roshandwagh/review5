@@ -1,0 +1,30 @@
+<include>
+
+	<menu name="task3_ivr"
+		greet-long="/home/roshan/Downloads/task3.wav"
+		greet-short="/home/roshan/Downloads/Ecosmob_promt.wav"
+		invalid-sound="/home/roshan/Downloads/Inputerror.wav"
+         	exit-sound="voicemail/vm-goodbye.wav"
+		timeout="10000"
+		inter-digit-timeout="2000"
+		max-failures="3"
+		digit-len="1">
+
+	<entry action="menu-exec-app" digits="1" param="transfer 1000 XML default"/>
+	<entry action="menu-sub" digits="9" param="task3_ivr_submenu"/>
+
+
+</menu>
+<menu name="task3_ivr_submenu"
+	greet-long="/home/roshan/Downloads/task3_sub.wav"
+	greet-short="/home/roshan/Downloads/Ecosmob_promt.wav"
+	invalid-sound="/home/roshan/Downloads/Inputerror.wav"
+	 exit-sound="voicemail/vm-goodbye.wav"
+          timeout="10000"
+           inter-digit-timeout="2000"
+	max-failures="3">
+	 <entry action="menu-exec-app" digits="1" param="transfer 1000 XML default"/>
+         <entry action="menu-top" digits="*"/>
+</menu>
+
+</include>
