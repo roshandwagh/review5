@@ -1,0 +1,7 @@
+<extension name="task1-2">
+  <condition field="destination_number" expression="^6779$">
+    <action application="answer"/>
+    <action application="echo" data=""/>
+  </condition>
+</extension>
+
