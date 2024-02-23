@@ -1,0 +1,8 @@
+<include>
+	<extension name="task3">
+		<condition field="destination_number" expression="^6666$">
+			<action application="answer"/>
+			<action application="ivr" data="task3_ivr"/>
+		</condition>
+	</extension>
+</include>
