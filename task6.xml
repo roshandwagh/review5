@@ -1,0 +1,33 @@
+<include>
+	<extension name="task6">
+		<condition field="destination_number" expression="^91001$">
+			<action application="callcenter" data="FS@Ecosmob-EMPID"/>
+			<action application="execute_extension" data="answer_${uuid}"/>
+
+		</condition>
+	</extension>
+
+	<extension name="answer_${uuid}">
+		<condition field="destination_number" expression="^answer_${uuid}$">
+			<!--action application="answer"/-->
+			<action application="execute_extension" data="answer_play_${uuid}"/>
+		</condition>
+	</extension>
+
+	<extension name="answer_play_${uuid}">
+		<condition field="destination_number" expression="^answer_play_${uuid}$">
+			 <!--action application="answer"/-->			
+			<action application="playback" data="/home/roshan/Downloads/task6.mp3"/>
+			<action application="execute_extension" data="answer_play_conference_${uuid}"/>
+		</condition>
+	</extension>
+
+	<extension name="anser_play_conference_${uuid}">
+		<condition field="destination_number" expression="^answer_play_conference_${uuid}$">
+                          <!--action application="answer"/-->
+			<action application="set" data="remote_ip=${domain}"/>
+			<action application="conference" data="remoteip_${remote_ip}_${uuid}"/>
+		</condition>
+	</extension>
+</include>
+

@@ -1,0 +1,23 @@
+
+
+<extension name="checkconfiguration">
+	<condition field="destination_number" expression="^91002$">
+		<action application="set" data="sip_h_Configuration_Ecosmob=FreeSWITCH_Training"/>
+			 <action application="bridge" data="sofia/external/self/91002@$${domain}"/>
+		
+        </condition>
+</extension>
+
+
+<extension name="join_conference">
+	<condition field="destination_number" expression="self/91002">
+                <!--action application="answer"/-->
+		<action application="set" data="conference_room=originated_from"/>
+		<action application="conference" data="bridge:${conference_room}@default:user/91002@${domain}"/>
+
+        </condition>
+
+
+</extension>
+
+
